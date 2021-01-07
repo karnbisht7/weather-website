@@ -5,7 +5,7 @@ const path = require('path')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
-const port = proc.env.PORT || 3000
+const port = process.env.PORT || 3000
 
 
 app.use(express.static('../public'))
@@ -65,15 +65,6 @@ app.get( '/weather' , (req , response) => {
 
 })
 
-app.get( '/product' , (req , res) => {
-
-    if(!req.query.search) {
-        return res.send('please enter search as query!')
-    }
-    res.send( {
-        products:[]
-    } )
-})
 
 app.get( '/help/*' , (req , res) => {
      res.render( '404' , {
