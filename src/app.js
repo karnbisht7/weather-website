@@ -7,11 +7,12 @@ const forecast = require('./utils/forecast')
 
 const port = process.env.PORT || 3000
 
+console.log(__dirname)
 
-app.use(express.static('../public'))
+app.use(express.static(path.join(__dirname , '../public')))
 app.set('view engine' , 'hbs')
-app.set('views' , './templates/views')
-hbs.registerPartials('./templates/partials')
+app.set('views' , path.join(__dirname , '/templates/views' ))
+hbs.registerPartials( path.join(__dirname , '/templates/partials' ))
 
 app.get( '/' , (req , res) => {
     res.render( 'index' , {
