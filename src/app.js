@@ -5,6 +5,8 @@ const path = require('path')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
+const port = proc.env.PORT || 3000
+
 
 app.use(express.static('../public'))
 app.set('view engine' , 'hbs')
@@ -91,6 +93,6 @@ app.get( '*' , (req , res) => {
 
 
 
-app.listen(3000 , ()=> {
-    console.log('server is up and running!')
+app.listen(port , ()=> {
+    console.log(`server is up and running at ${port}!`)
 })
